@@ -1,8 +1,12 @@
 const express = require('express');
 
 const routes = express.Router();
-const EventController = require('../controllers/EventController');
+const AuthController = require('../controllers/AuthController');
 const UserController = require('../controllers/UserController');
+const EventController = require('../controllers/EventController');
+
+// LOGIN
+routes.post('/auth/login', AuthController.login);
 
 // USER
 routes.post('/users', UserController.create);

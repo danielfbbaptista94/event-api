@@ -16,7 +16,7 @@ connection.connect( (error) => {
 
 app.use(cors());
 app.use(express.json({ extended: false }));
-app.use("/api",routers);
+app.use("/api",routes);
 // app.use(cookieParser());
 
 app.listen(5001, () => {
