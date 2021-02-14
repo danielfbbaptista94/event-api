@@ -9,7 +9,7 @@ const EventController = require('../controllers/EventController');
 routes.post('/auth/login', AuthController.login);
 
 // USER
-routes.post('/users', UserController.create);
+routes.post('/auth/register', UserController.create);
 
 // EVENT
 routes.post('/events', EventController.create);

@@ -1,6 +1,7 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const cors = require('cors');
+const cookieParser = require('cookie-parser');
 
 const app = express();
 const connection = require('../db/connection');
@@ -17,7 +18,7 @@ connection.connect( (error) => {
 app.use(cors());
 app.use(express.json({ extended: false }));
 app.use("/api",routes);
-// app.use(cookieParser());
+app.use(cookieParser());
 
 app.listen(5001, () => {
     console.log("Server start at port 5001");

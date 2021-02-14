@@ -18,7 +18,7 @@ module.exports = {
                 
                 connection.query("INSERT INTO users SET ?", 
                     { name: name, email: email, username: username,
-                        password: hashPassword, status: status, age: age, profile: profile }, 
+                        password: hashPassword, status: status, age: age }, 
                     (error, result) => {
                         if (error)
                             console.log(error);

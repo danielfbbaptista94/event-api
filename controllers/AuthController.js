@@ -21,21 +21,21 @@ module.exports = {
                         return res.status(401).json("Username or Password is incorrect !");
                     } else {
                         const id = result[0].id
-                        const token = jwt.sign({ id: id }, process.env.JWT_SECRET, {
-                            expiresIn: process.env.JWT_EXPIRES_IN
+                        const token = jwt.sign({ id: id }, 'mysupersecretpassword', {
+                            expiresIn: '90d'
                         })
 
                         console.log("The Token is: " + token);
 
                         const cookieOptions = {
                             expires: new Date(
-                                Date.now() + process.env.JWT_COOKIE_EXPIRES * 24 * 60 * 60 * 1000
+                                Date.now() + 90 * 24 * 60 * 60 * 1000
                             ),
                             httpOnly: true
                         }
 
                         res.cookie('jwt', token, cookieOptions);
-                        res.status(200).json({msg: "Login Successful"});
+                        res.status(200).json({user_id: id, msg: "Login Successful"});
                     }
                 }
             );
